@@ -5,7 +5,7 @@ namespace minimal_api.Infrasctructure.DB
 {
     public class DbContextMinimal : DbContext
     {
-        public DbContextMinimal(IConfiguration configurationAppSettings, DbContextOptions<DbContextMinimal> options)
+        public DbContextMinimal(IConfiguration configurationAppSettings, DbContextOptionsBuilder options)
         {
             _configurationAppSettings = configurationAppSettings;
         }
