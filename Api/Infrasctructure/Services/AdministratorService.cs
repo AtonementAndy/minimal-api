@@ -10,8 +10,8 @@ namespace minimal_api.Infrasctructure.Services
 {
     public class AdministratorService : IAdministratorService
     {
-        private readonly DbContextMinimal _context;
-        public AdministratorService(DbContextMinimal context)
+        private readonly DbContexto _context;
+        public AdministratorService(DbContexto context)
         {
             _context = context;
         }

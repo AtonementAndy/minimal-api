@@ -7,8 +7,8 @@ namespace minimal_api.Infrasctructure.Services
 {
     public class VehicleService : IVehicleService
     {
-        private readonly DbContextMinimal _context;
-        public VehicleService(DbContextMinimal context)
+        private readonly DbContexto _context;
+        public VehicleService(DbContexto context)
         {
             _context = context;
         }
@@ -21,8 +21,13 @@ namespace minimal_api.Infrasctructure.Services
 
         public void DeleteVehicleById(Vehicle veiculo)
         {
-            _context.Veiculos.Remove(veiculo);
-            _context.SaveChanges();
+            var existingVehicle = _context.Veiculos.Find(veiculo.Id);
+            if (existingVehicle != null)
+            {
+                _context.Veiculos.Remove(veiculo);
+                _context.SaveChanges();
+            }
+                
         }
 
         public List<Vehicle> GetAllVehicles(int? page = 1, string? name = null, string? brand = null)
@@ -52,8 +57,12 @@ namespace minimal_api.Infrasctructure.Services
 
         public void UpdateVehicle(Vehicle veiculo)
         {
-            _context.Veiculos.Update(veiculo);
-            _context.SaveChanges();
+            var existingVehicle = _context.Veiculos.Find(veiculo.Id);
+            if (existingVehicle != null)
+            {
+                _context.Veiculos.Update(veiculo);
+                _context.SaveChanges();
+            }
         }
     }
 }

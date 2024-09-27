@@ -3,9 +3,9 @@ using minimal_api.Domain.Entities;
 
 namespace minimal_api.Infrasctructure.DB
 {
-    public class DbContextMinimal : DbContext
+    public class DbContexto : DbContext
     {
-        public DbContextMinimal(IConfiguration configurationAppSettings, DbContextOptionsBuilder options)
+        public DbContexto(IConfiguration configurationAppSettings)
         {
             _configurationAppSettings = configurationAppSettings;
         }
@@ -15,6 +15,8 @@ namespace minimal_api.Infrasctructure.DB
         public DbSet<Administrator> Administrators { get; set; } = default!;
 
         public DbSet<Vehicle> Veiculos { get; set; } = default!;
+
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

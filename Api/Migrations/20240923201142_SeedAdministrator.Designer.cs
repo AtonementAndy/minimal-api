@@ -10,7 +10,7 @@ using minimal_api.Infrasctructure.DB;
 
 namespace minimal_api.Migrations
 {
-    [DbContext(typeof(DbContextMinimal))]
+    [DbContext(typeof(DbContexto))]
     [Migration("20240923201142_SeedAdministrator")]
     partial class SeedAdministrator
     {
